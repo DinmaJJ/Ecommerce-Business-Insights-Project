@@ -1,0 +1,41 @@
+============================================================
+E-COMMERCE MESSY DATASET SUMMARY
+============================================================
+
+TABLE SIZES:
+  Customers: 50500 rows x 24 columns
+  Products: 10300 rows x 30 columns
+  Orders: 101000 rows x 24 columns
+  Reviews: 50400 rows x 20 columns
+  TOTAL ROWS: 212,200
+  TOTAL COLUMNS: 98
+
+COMMON DATA ISSUES INCLUDED:
+  • Missing values (NULL, NaN, empty strings)
+  • Duplicate rows across all tables
+  • Inconsistent formatting (dates, names, categories)
+  • Invalid values (negative prices, ages, quantities)
+  • Mixed case in categorical fields
+  • Trailing/leading whitespace
+  • Unicode/special characters (emojis, non-Latin scripts)
+  • Referential integrity issues (orphaned foreign keys)
+  • Inconsistent boolean representations (True/False, 1/0, Y/N)
+  • Invalid email addresses and phone numbers
+  • Inconsistent currency representations
+  • Impossible dates (Feb 30, month 13)
+
+JOIN RELATIONSHIPS:
+  customers.customer_id → orders.customer_id
+  products.product_id → orders.product_id
+  orders.order_id → reviews.order_id
+  products.product_id → reviews.product_id
+  customers.customer_id → reviews.customer_id
+
+DATA QUALITY CHALLENGES:
+  1. Clean customer data with inconsistent formatting
+  2. Handle product price outliers and negatives
+  3. Standardize date formats across tables
+  4. Deduplicate records while preserving valid duplicates
+  5. Fix referential integrity between tables
+  6. Handle mixed-type columns (booleans as strings/ints)
+  7. Clean text data with Unicode and whitespace issues
