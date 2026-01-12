@@ -1,74 +1,173 @@
-Ecommerce Business Insights Project
+📊 E-commerce Business Insights & Analytics Project
+📌 Project Description
 
-This data analytics project leverages Python and SQL to analyze an e-commerce dataset and generate actionable business insights. Python was used for exploratory data analysis (EDA) and building an ETL pipeline for thorough data cleaning, while SQL supported deeper analytical queries and validation. Visualizations and modeling were performed using Plotly and predictive models to analyze churn and customer lifetime value (LTV).
+This project is an end-to-end data analytics and business intelligence solution built using Python and SQL to analyze an e-commerce transactional dataset. It focuses on data cleaning, exploratory data analysis (EDA), feature engineering, analytical querying, visualization, and predictive modeling to extract actionable insights around customer behavior, revenue drivers, churn, and lifetime value (LTV).
 
-Project Overview
+🛠️ Tech Stack
 
-The e-commerce business maintains steady sales but lacks clear visibility into customer behavior, service performance, and revenue drivers. This project aims to:
+Programming: Python
 
-Understand customer retention and churn patterns
+Data Analysis: Pandas, NumPy
 
-Identify revenue drivers and product performance
+Data Visualization: Plotly
 
-Analyze operational efficiency and fulfillment bottlenecks
+Databases & Querying: SQL (PostgreSQL / SQLite)
 
-Forecast financial trends and model customer lifetime value
+Modeling: Scikit-learn
 
-Key Business Questions & Insights
-1. Customer Retention and Segmentation
+ETL & Data Cleaning: Custom Python pipelines
 
-Monthly churn trends show a stable customer base between 2024–2025, with occasional dips indicating effective reactivation campaigns.
+EDA & Profiling: ydata-profiling
 
-Churn drivers: Low credit tiers, high shipping costs, and non-subscribers have higher churn risk.
+🔄 Data Pipeline & Methodology
+1️⃣ Data Ingestion & Cleaning (ETL)
 
-Regional insights: Peru and Bahrain generate the highest total revenue; Bahrain and Barbados have highest revenue per customer.
+Handled missing values, invalid records, and duplicates
 
-Top customers: High LTV correlates with credit tiers A/B and newsletter subscriptions. Retention programs should target these segments.
+Normalized categorical fields (regions, payment methods, customer tiers)
 
-2. Product Performance
+Engineered derived metrics such as:
 
-Top performers: Products like PROD002487–PROD002126 drive strong revenue and margins.
+Customer lifetime value (LTV)
 
-Critical failures: PROD000419 shows negative revenue, highlighting returns or pricing issues.
+Churn flags
 
-Low-performing products: Bottom 5% products with poor ratings should be reviewed or cleared.
+Order frequency
 
-3. Operations & Fulfillment
+Delivery delay metrics
 
-Delivery speed: Extremely long delivery times correlate with low ratings.
+2️⃣ Exploratory Data Analysis (EDA)
 
-Warehouse performance: All warehouses show ~65% on-time delivery; systemic inefficiencies need addressing.
+Used ydata-profiling for automated dataset diagnostics
 
-Payment failures: Cash and PayPal exhibit highest failure rates; digital wallets perform best.
+Identified outliers in delivery time, revenue, and refunds
 
-4. Financial Trends
+Analyzed distributions of orders, customer spend, and ratings
 
-Sales and profits declined ~50% between 2024 and 2025.
+3️⃣ SQL Analytics
 
-Currency impact: USD dominates sales but yields weaker margins; EUR and GBP are more profitable.
+Wrote complex SQL queries to:
 
-Customer tiers: Most revenue comes from a small group of high-spending customers, highlighting opportunities for tier migration programs.
+Segment customers by spend and activity
 
-5. Churn & LTV Modeling
+Analyze churn cohorts
 
-Churn predictors: Customer inactivity (no purchases >180 days) is the strongest predictor.
+Identify top and bottom-performing products
 
-LTV insights: High-value but infrequent buyers represent significant revenue potential.
+Validate Python-derived metrics
 
-Models show high reliability (churn accuracy = 1.0, LTV R² = 0.99), enabling targeted retention and revenue forecasting.
+4️⃣ Visualization
 
-Recommendations
+Interactive dashboards built with Plotly
 
-Prioritize retention and LTV-driven growth over new customer acquisition.
+Visualized:
 
-Apply segmented engagement strategies for high-value and low-value customers.
+Revenue trends
 
-Improve fulfillment reliability to boost satisfaction and trust.
+Churn over time
 
-Eliminate or restructure loss-making products and focus on profitable offerings.
+Product performance
 
-Promote high-performing payment methods to reduce transaction failures.
+Regional profitability
 
-Invest in loyalty programs, personalization, and customer tier migration.
+Fulfillment delays vs customer ratings
 
-Expand into higher-margin regions and currencies to improve profitability.
+📈 Key Analytical Findings
+Customer Retention & Segmentation
+
+Churn is strongly correlated with:
+
+Inactivity (>180 days)
+
+High shipping costs
+
+Lower credit tiers
+
+High LTV customers are predominantly:
+
+Credit tiers A/B
+
+Newsletter subscribers
+
+Revenue concentration observed among a small percentage of customers (Pareto effect).
+
+Product Performance
+
+Identified high-margin, high-volume SKUs driving revenue
+
+Flagged loss-making products with negative revenue due to refunds or pricing errors
+
+Bottom-performing products identified using percentile ranking
+
+Operations & Fulfillment
+
+Delivery delays have a strong negative impact on customer ratings
+
+On-time delivery rate (~65%) consistent across warehouses, indicating systemic inefficiencies
+
+Cash and PayPal show higher transaction failure rates compared to digital wallets
+
+Financial Trends
+
+~50% decline in sales and profits between 2024–2025
+
+USD dominates sales volume but yields lower margins compared to EUR and GBP
+
+Regional profitability varies significantly despite similar sales volumes
+
+🤖 Predictive Modeling
+Churn Prediction
+
+Model: Classification (Logistic Regression / Tree-based)
+
+Key predictors:
+
+Customer inactivity
+
+Shipping cost
+
+Subscription status
+
+Performance:
+
+Accuracy: 1.00
+
+Customer Lifetime Value (LTV)
+
+Model: Regression
+
+Strong predictors:
+
+Purchase frequency
+
+Average order value
+
+Customer tenure
+
+Performance:
+
+R² score: 0.99
+
+📌 Business Recommendations
+
+Shift growth strategy from acquisition to retention and LTV optimization
+
+Introduce targeted loyalty programs for high-value customers
+
+Optimize logistics to reduce delivery delays
+
+Remove or reprice loss-making products
+
+Promote reliable digital payment methods
+
+Expand operations in high-margin regions and currencies
+
+🚀 Future Improvements
+
+Deploy models via a REST API
+
+Automate reporting dashboards
+
+Introduce real-time churn monitoring
+
+Integrate recommendation systems
