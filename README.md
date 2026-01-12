@@ -8,7 +8,7 @@ This project is an end-to-end data analytics and business intelligence solution 
 - Programming: Python
 - Data Analysis: Pandas, NumPy
 - Data Visualization: Plotly
-- Databases & Querying: SQL (PostgreSQL / SQLite)
+- Databases & Querying: SQL (SQLite)
 - Modeling: Scikit-learn
 - ETL & Data Cleaning: Custom Python pipelines
 - EDA & Profiling: ydata-profiling
