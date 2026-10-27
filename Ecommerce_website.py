@@ -378,7 +378,7 @@ def clean_ecommerce_dataset(
             date_columns = ["order_date","estimated_delivery","actual_delivery"]
             for col in date_columns:
                 if col in df1.columns:
-                    df1[col] = pd.to_datetime(df1[col],errors="coerce",infer_datetime_format=True)
+                    df1[col] = pd.to_datetime(df1[col],errors="coerce")
             # 2. Split into separate columns
             df1["order_date_date"] = df1["order_date"].dt.date
             df1["order_date_time"] = df1["order_date"].dt.time
