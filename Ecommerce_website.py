@@ -932,13 +932,33 @@ def clean_ecommerce_dataset(
 
 
 # ------------------- RUN THE PIPELINE -------------------
-if __name__ == "__main__":
-    # Adjust path if your DB is not in the current directory
-    cleaned_data = clean_ecommerce_dataset(
-        sqlite_db_path="Ecommerce.db",           # Change if needed
-        run_tables=("customers", "orders", "products", "reviews"),      # Add more tables as needed
-        save_to_sqlite=True                      # Set to True to save cleaned versions
-    )
+DB_PATH = "Ecommerce.db"
+DB_URL = "https://drive.google.com/uc?export=download&confirm=t&id=1imQCUnB9vY4zECqy-CuWSMbKm0psazql"
+
+# Download the database only if it doesn't exist yet
+if not Path(DB_PATH).exists():
+    with st.spinner("Downloading database for the first time... This may take 1–2 minutes"):
+        try:
+            response = requests.get(DB_URL, stream=True)
+            response.raise_for_status()
+            with open(DB_PATH, "wb") as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+            st.success("Database downloaded successfully!")
+        except Exception as e:
+            st.error(f"Failed to download the database: {e}")
+            st.stop()
+
+# Now run the cleaning pipeline
+cleaned_data = clean_ecommerce_dataset(
+    sqlite_db_path=DB_PATH,
+    run_tables=("customers", "orders", "products", "reviews"),
+    save_to_sqlite=True
+)
+
+# Store it in session state so the rest of the app can use it
+st.session_state.cleaned_data = cleaned_data
 
 
 #=============================ANALYTICS AND VISUALIZATION========================================
