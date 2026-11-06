@@ -1,7 +1,10 @@
 📊 E-commerce Business Insights & Analytics Project
+
 📌 Project Description
 
 This project is an end-to-end data analytics and business intelligence solution built using Python and SQL to analyze an e-commerce transactional dataset. It focuses on data cleaning, exploratory data analysis (EDA), feature engineering, analytical querying, visualization, and predictive modeling to extract actionable insights around customer behavior, revenue drivers, churn, and lifetime value (LTV).
+To see the project in full swing click the link below:
+https://ecommerce-business-insights-project.streamlit.app/
 
 🛠️ Tech Stack
 
